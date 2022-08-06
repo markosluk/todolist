@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react"
+import Header from "./Header"
+import Footer from "./Footer"
+import CreateItem from "./CreateItem"
+import ShowItems from "./ShowItems"
+
 
 function App() {
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem("todoList")) || [])
+  
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(items))
+  }, [items])
+
+  const handleAdd = (item) => {
+    setItems(prevValue => ([...prevValue, item]))
+  }
+
+  const handleRemove = (id) => {
+    setItems(prevValue => (
+      prevValue.filter((value, index) => (index !== id))
+    ))
+  }
+
+  console.log(items);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <CreateItem handleAdd={handleAdd} />
+      <ShowItems items={items} handleRemove={handleRemove} />
+      <Footer />
     </div>
   );
 }
 
-export default App;
+export default App
