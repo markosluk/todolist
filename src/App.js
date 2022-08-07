@@ -22,8 +22,6 @@ function App() {
     ))
   }
 
-  console.log(items);
-
   return (
     <div className="App">
       <Header />

@@ -9,7 +9,6 @@ html {
 }
 
 body {
-  min-height: 100vh;
   font-family: 'Kalam', cursive, "Lucida Console", 
   "Courier New", monospace, sans-serif;
   background-image: url("../public/IQZbK5.jpg");
@@ -23,11 +22,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
   width: 100%; 
-  max-width: 500px;
-  border: 1px solid rgb(22, 22, 21);
   margin: auto;
+  min-height: 100vh;
 }
 
 header {
@@ -42,45 +39,18 @@ header {
 footer {
   width: 100%;
   padding: 16px 32px;
-  position: absolute;
   text-align: center;
-  bottom: 0;
   height: 2.5rem;
   background-color: #f8e4a0c2;
   color: rgb(44, 41, 9);
+  margin-top: auto;
 }
-.item {
-  background: #fff;
-  border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  width: 240px;
-  margin: 10px;
-  float: left;
-}
-.item h1 {
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-.item p {
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-size: 16px;
-}
-.item button {
+
+.create-item {
   position: relative;
-  float: right;
-  margin-right: 1px;
-  color: #b48f27;
-  border: none;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-  outline: none;
-}
-form.create-item {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 400px;
   margin: 30px auto 20px auto;
   background: #fff;
@@ -89,21 +59,22 @@ form.create-item {
   box-shadow: 0 2px 5px rgb(17, 17, 17);
 }
 
-form.create-item input,
-form.create-item textarea {
+.create-item input,
+.create-item textarea {
   width: 100%;
   border: none;
   padding: 5px;
   font-size: 1.1em;
-  font-family: inherit;
   outline: none;
   resize: none;
+  font-family: inherit;
 }
-form.create-item input {
+
+.create-item input {
   border-bottom: 1px dotted gray;
 }
 
-form.create-item button {
+.create-item button {
   position: absolute;
   right: 30px;
   bottom: -20px;
@@ -117,4 +88,49 @@ form.create-item button {
   cursor: pointer;
   outline: none;
 }
+
+.show-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: auto;
+  width: 100%;
+}
+
+.item {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 10px;
+}
+
+.item h1 {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.item p {
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+.item button {
+  position: relative;
+  float: right;
+  margin-right: 1px;
+  color: #b48f27;
+  border: none;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  outline: none;
+}
+
 
